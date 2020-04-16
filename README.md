@@ -1,5 +1,5 @@
 <h1 align="center">Basic code Injection</h1>
-<h4 align="center">Basic code injection that makes the target process jump to other function.</h4>
+<h4 align="center">Basic code injection that makes the target process jump to other function. (Linux)</h4>
 <p align="center"><img src="media/header.gif" alt="header" height="230"></p>
 
 <h3>1.-Introduction</h3>
@@ -78,7 +78,7 @@ The last step is overwrite the jump number, so the opcode will look like this:
  ```
  
 <b>Note: the opcode won't be always the same so you will have to read it everytime you run the process.
-In order to read and write in a process memory you can open the pseudofile " /proc/mipid/mem/".</b>
+In order to read and write in a process memory you can open the pseudofile " /proc/mipid/mem".</b>
 </p>
 
 <h3>The result</h3>
