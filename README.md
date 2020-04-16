@@ -6,9 +6,11 @@
 I've been always interested in game modding and how people can modify them  in spite of not having the source code, so I wanted to have a first view of how they do it.
 
 <p>for this case we will need <a href="mainCode">two things</a>:</p>
+
 <ol>
   <li>the target (which we will code in order to not having legal issues).:sweat_smile:</li>
   <li>the injector, that will modify the target.</li>
+  <p align="center"><img src="media/diagram.png" alt="header" height="230"></p>
 </ol>
 
 <p>
@@ -80,3 +82,22 @@ In order to read and write in a process memory you can open the pseudofile " /pr
 </p>
 
 <h3>The result</h3>
+
+Now if we run the original target the result will be the same as the first...
+
+```bash
+>./target
+> 2*3
+6
+> 2+3
+5
+```
+But if we run the target from the injector you can see that the behaviour has changed, now the multiply operation works as the add operation:
+
+```bash
+>./injector
+> 2*3
+5
+> 2+3
+5
+```
