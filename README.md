@@ -10,7 +10,6 @@ I've been always interested in game modding and how people can modify them  in s
 <ol>
   <li>the target (which we will code in order to not having legal issues).:sweat_smile:</li>
   <li>the injector, that will modify the target.</li>
-  <p align="center"><img src="media/diagram.png" alt="header" height="230"></p>
 </ol>
 
 <p>
@@ -33,9 +32,10 @@ I've been always interested in game modding and how people can modify them  in s
   So now we have two process running:
   </p>
   <ul>
-    <le> <b>The target</b> as the child.</le>
-    <le> <b>The injector code</b> (with the target pid) as the parent.</le>
+    <li> <b>The target</b> as the child.</li>
+    <li> <b>The injector code</b> (with the target pid) as the parent.</li>
   </ul>
+    <p align="center"><img src="media/diagram.png" alt="diagram"></p>
 <p>
 there is a lot of options to watch the disassembly, what I do is stopping the debug session when the target pid is generated and then <b>connect</b> the process to the debugger so I can  inspect step by step the target.
 Once you have the pid, you can open the pseudofile "/proc/yourpid/maps" to see the target base adress. after some research, I realized that the first number of the second line points to the "init" tag of the disassembly code.
