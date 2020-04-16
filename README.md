@@ -78,7 +78,7 @@ The last step is overwrite the jump number, so the opcode will look like this:
  ```
  
 <b>Note: the opcode won't be always the same so you will have to read it everytime you run the process.
-In order to read and write in a process memory you can open the pseudofile " /proc/mipid/mem/".
+In order to read and write in a process memory you can open the pseudofile " /proc/mipid/mem/".</b>
 </p>
 
 <h3>The result</h3>
