@@ -57,7 +57,7 @@ So the offset will be 123a-1000 = 23a(hex) = 570.
  ```
   e8 5e ff ff ff
  ```
-The opcode of the call instruction consist in two parts: the instruction code and where to jump. As we only want to modify the second part, we can simply add or subtract as many bytes as lines we want to move around.
+The opcode of the call instruction consist in two parts: the instruction code("e8") and where to jump("5e ff ff ff").
 For this case we just want to jump to the add function, making the target adding the numbers when it is supposed to multiply them.
 
 ```
@@ -66,7 +66,17 @@ For this case we just want to jump to the add function, making the target adding
 ...
 119d <_Z8multiplyii>
 ```
-looking at the assembly you can calculate the number of bytes between the the function addresses:
-119d - 1189 = 14(hex) = 20
-now we rest the result to the opcode:   e85effffff - 14 =
+looking at the assembly you can calculate the number of bytes between the "add" and "multiply" function addresses:
+119d - 1189 = 14(hex) = 20.
+now we will subtract the result to the opcode:   5effffff - 14 = 4affffff (the address bytes are shown inverted in assembly view but when you cast it to int it works great).
+The last step is overwrite the jump number, so the opcode will look like this:
+ 
+ ```
+  e8 4a ff ff ff
+ ```
+ 
+<b>Note: the opcode won't be always the same so you will have to read it everytime you run the process.
+In order to read and write in a process memory you can open the pseudofile " /proc/mipid/mem/".
 </p>
+
+<h3>The result</h3>
